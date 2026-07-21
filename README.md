@@ -20,57 +20,9 @@ We learn to:
 
 ## Example Notebook + Your Notebook
 
-Keep the example notebook as it is.
-Either copy it or use it to build a new notebook that ends in _yourname.
-See [docs/your-files.md] for more.
-
 Links:
 
-- [ml_04_case.ipynb](notebooks/ml_04_case.ipynb)
-
-## Working Files
-
-You'll work with these areas:
-
-- **data/raw** - raw data for exploration (only if you add a dataset)
-- **docs/** - project narrative and documentation
-- **src/mlstudio/** - the app is an example; run only (no need to modify)
-- **notebooks/** - interactive analysis
-- **pyproject.toml** - update authorship & links
-- **zensical.toml** - update authorship & links
-
-## Instructions (pro-analytics-02)
-
-Follow the
-[step-by-step workflow guide](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/)
-to complete:
-
-1. Phase 1. **Start & Run**
-2. Phase 2. **Change Authorship**
-3. Phase 3. **Read & Understand**
-4. Phase 4. **Modify**
-5. Phase 5. **Apply**
-
-## Challenges
-
-Challenges are expected.
-Sometimes instructions may not quite match your operating system.
-When issues occur, share screenshots, error messages, and details about what you tried.
-Working through issues is part of implementing professional projects.
-
-## Success
-
-After completing Phase 1. **Start & Run**, you'll have your own GitHub project,
-with the example notebook executed and committed,
-and running the example module will print out:
-
-```shell
-========================
-Executed successfully!
-========================
-```
-
-A new file `project.log` will appear in the root project folder.
+- [ml_04_regression.ipynb](notebooks/ml_04_regression.ipynb)
 
 ## Command Reference
 
@@ -84,7 +36,7 @@ open a machine terminal in your `Repos` folder:
 
 ```shell
 # Replace username with YOUR GitHub username.
-git clone https://github.com/username/ml-04-regression
+git clone https://github.com/gracecode42/ml-04-regression
 
 cd ml-04-regression
 code .
@@ -127,43 +79,6 @@ git push -u origin main
 ```
 
 </details>
-
-## Notes
-
-- Use the **UP ARROW** and **DOWN ARROW** in the terminal to scroll through past commands.
-- Use `CTRL+f` to find (and replace) text within a file.
-- You do not need to add to or modify `tests/`. They are provided for example only.
-- Many files are silent helpers. Explore as you like, but nothing is required.
-- You do NOT need to understand everything; understanding builds naturally over time.
-
-## Troubleshooting >>>
-
-If you see something like this in your terminal: `>>>` or `...`
-You accidentally started Python interactive mode.
-It happens.
-Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
-
-## Example Output (Can Remove this Section after You Verify)
-
-```shell
-| INFO | ML | Summarize workflow........
-| INFO | ML | ========================
-| INFO | ML | SUMMARY
-| INFO | ML | ========================
-| INFO | ML | Dataset: hours_scores_case
-| INFO | ML | Original rows: 10
-| INFO | ML | Clean rows: 10
-| INFO | ML | Features: ['hours_studied', 'practice_quizzes', 'attendance_pct', 'sleep_hours', 'prior_score']
-| INFO | ML | Target: score
-| INFO | ML | ----- in a script, call plt.show() once at the end to display all charts -----
-| INFO | ML | ----- in a script, CLOSE the chart windows with the close button to CONTINUE -----
-| INFO | ML | Workflow complete
-| INFO | ML | IMPORTANT: This script creates chart windows.
-| INFO | ML | Close chart windows and terminate this process with CTRL+c as needed.
-| INFO | ML | ========================
-| INFO | ML | Executed successfully!
-| INFO | ML | ========================
-```
 
 ## Findings and Visuals
 
