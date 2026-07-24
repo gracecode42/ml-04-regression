@@ -271,3 +271,72 @@ body_mass_g                    0.871           0.595        1.000
 2026-07-23 22:23:40 | INFO | ML | shell=powershell
 2026-07-23 22:23:40 | INFO | ML | cwd=.
 2026-07-23 22:23:40 | INFO | ML | github_actions=False
+2026-07-24 13:50:22 | INFO | M04 Phase 4 | === RUN START ===
+2026-07-24 13:50:22 | INFO | M04 Phase 4 | project=M04 Phase 4
+2026-07-24 13:50:22 | INFO | M04 Phase 4 | repo_dir=ml-04-regression
+2026-07-24 13:50:22 | INFO | M04 Phase 4 | python=3.14.2
+2026-07-24 13:50:22 | INFO | M04 Phase 4 | os=Windows 11
+2026-07-24 13:50:22 | INFO | M04 Phase 4 | shell=powershell
+2026-07-24 13:50:22 | INFO | M04 Phase 4 | cwd=notebooks
+2026-07-24 13:50:22 | INFO | M04 Phase 4 | github_actions=False
+2026-07-24 13:50:22 | INFO | M04 Phase 4 | Confirming installation:
+2026-07-24 13:50:22 | INFO | M04 Phase 4 |   python:       3.14.2
+2026-07-24 13:50:22 | INFO | M04 Phase 4 |   pandas:       3.0.3
+2026-07-24 13:50:22 | INFO | M04 Phase 4 |   numpy:        2.5.1
+2026-07-24 13:50:22 | INFO | M04 Phase 4 |   scikit-learn: 1.9.0
+2026-07-24 13:50:22 | INFO | M04 Phase 4 |   seaborn:      0.13.2
+2026-07-24 13:50:22 | INFO | M04 Phase 4 |   matplotlib:   3.11.1
+2026-07-24 13:50:27 | INFO | M04 Phase 4 | Loading dataset: penguins
+2026-07-24 13:50:27 | INFO | M04 Phase 4 | Loaded: 344 rows (instances), 7 columns
+2026-07-24 13:50:27 | INFO | M04 Phase 4 | Original rows: 344  Model rows: 342
+2026-07-24 13:50:32 | INFO | M04 Phase 4 | Summary statistics for the features and target:
+2026-07-24 13:50:32 | INFO | M04 Phase 4 | 
+       flipper_length_mm  bill_length_mm  body_mass_g
+count             342.00          342.00       342.00
+mean              200.92           43.92      4201.75
+std                14.06            5.46       801.95
+min               172.00           32.10      2700.00
+25%               190.00           39.22      3550.00
+50%               197.00           44.45      4050.00
+75%               213.00           48.50      4750.00
+max               231.00           59.60      6300.00
+2026-07-24 14:36:48 | INFO | M04 Phase 4 | X shape: (342, 2)  (rows, features)
+2026-07-24 14:36:48 | INFO | M04 Phase 4 | Train instances: 273
+2026-07-24 14:36:48 | INFO | M04 Phase 4 | Test instances: 69
+2026-07-24 14:36:53 | INFO | M04 Phase 4 | Fitting a linear regression (scikit-learn)
+2026-07-24 14:36:53 | INFO | M04 Phase 4 | Fitted model for body_mass_g:
+2026-07-24 14:36:53 | INFO | M04 Phase 4 |   47.5233 * flipper_length_mm
+2026-07-24 14:36:53 | INFO | M04 Phase 4 |   5.07302 * bill_length_mm
+2026-07-24 14:36:53 | INFO | M04 Phase 4 |   intercept: -5574.38
+2026-07-24 14:36:53 | INFO | M04 Phase 4 | Equation: body_mass_g = 47.5233 * flipper_length_mm + 5.07302 * bill_length_mm + -5574.38
+2026-07-24 14:37:00 | INFO | M04 Phase 4 | Fit numbers on the TEST set (for you to interpret):
+2026-07-24 14:37:00 | INFO | M04 Phase 4 |   R-squared: 0.7838
+2026-07-24 14:37:00 | INFO | M04 Phase 4 |   RMSE:      379.113  (in units of Body mass (g))
+2026-07-24 14:37:47 | INFO | M04 Phase 4 |   degree=1  terms= 2  train RMSE=395.911  test RMSE=379.113
+2026-07-24 14:37:47 | INFO | M04 Phase 4 |   degree=2  terms= 5  train RMSE=370.582  test RMSE=376.543
+2026-07-24 14:37:47 | INFO | M04 Phase 4 |   degree=3  terms= 9  train RMSE=364.199  test RMSE=370.779
+2026-07-24 14:37:47 | INFO | M04 Phase 4 |   degree=4  terms=14  train RMSE=362.655  test RMSE=365.778
+2026-07-24 14:37:47 | INFO | M04 Phase 4 |   degree=5  terms=20  train RMSE=363.488  test RMSE=365.441
+2026-07-24 14:38:49 | INFO | M04 Phase 4 | Fit numbers on the TEST set (for you to interpret):
+2026-07-24 14:38:49 | INFO | M04 Phase 4 |   R-squared: 0.7838
+2026-07-24 14:38:49 | INFO | M04 Phase 4 |   RMSE:      379.113  (in units of Body mass (g))
+2026-07-24 14:38:49 | INFO | M04 Phase 4 | Feature case comparison (test set):
+2026-07-24 14:38:49 | INFO | M04 Phase 4 |   Case 1: flipper only     R-squared: 0.7820  RMSE: 380.695
+2026-07-24 14:38:49 | INFO | M04 Phase 4 |   Case 2: bill only        R-squared: 0.3662  RMSE: 649.168
+2026-07-24 14:38:49 | INFO | M04 Phase 4 |   Case 3: both features    R-squared: 0.7838  RMSE: 379.113
+2026-07-24 14:50:11 | INFO | ML | === RUN START ===
+2026-07-24 14:50:11 | INFO | ML | project=ML
+2026-07-24 14:50:11 | INFO | ML | repo_dir=ml-04-regression
+2026-07-24 14:50:11 | INFO | ML | python=3.14.2
+2026-07-24 14:50:11 | INFO | ML | os=Windows 11
+2026-07-24 14:50:11 | INFO | ML | shell=powershell
+2026-07-24 14:50:11 | INFO | ML | cwd=.
+2026-07-24 14:50:11 | INFO | ML | github_actions=False
+2026-07-24 15:01:00 | INFO | ML | === RUN START ===
+2026-07-24 15:01:00 | INFO | ML | project=ML
+2026-07-24 15:01:00 | INFO | ML | repo_dir=ml-04-regression
+2026-07-24 15:01:00 | INFO | ML | python=3.14.2
+2026-07-24 15:01:00 | INFO | ML | os=Windows 11
+2026-07-24 15:01:00 | INFO | ML | shell=powershell
+2026-07-24 15:01:00 | INFO | ML | cwd=.
+2026-07-24 15:01:00 | INFO | ML | github_actions=False

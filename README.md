@@ -8,21 +8,29 @@
 
 ## Project Description
 
-This project focuses on learning to build models that predict a number.
+This project builds and evaluates regression models, extending a course example
+and then applying the same workflow to a custom problem.
 
-We learn to:
+The example predicts body_mass_g on the Seaborn penguins dataset from a single
+body measurement. The Phase 4 modification extends it to a multiple regression
+on two features and adds a case comparison to test whether the second feature
+earns its place. The Phase 5 custom project applies the workflow to a new
+dataset and is documented in docs/index.md.
 
-- train and evaluate a regression model
-  (e.g., linear regression, decision tree regressor)
-- read regression metrics: MAE, RMSE, R^2
-- interpret what the model learned
-- compare models and choose the better one
+The work covers:
 
-## Example Notebook + Your Notebook
+- fitting and evaluating regression models
+- using a train/test split to evaluate on unseen data
+- reading regression metrics: R-squared, RMSE, and residual plots
+- comparing feature cases and polynomial degree to choose a model
+
+## Notebooks
 
 Links:
 
-- [ml_04_regression.ipynb](notebooks/ml_04_regression.ipynb)
+- [ml_04_regression.ipynb](notebooks/ml_04_regression.ipynb) — the course example (penguins)
+- [ml_04_regression_penguins.ipynb](notebooks/ml_04_regression_penguins.ipynb) — Phase 4: multiple regression on penguins
+- [ml_04_regression_insurance.ipynb](notebooks/ml_04_regression_insurance.ipynb) — Phase 5 custom project
 
 ## Command Reference
 
@@ -82,26 +90,18 @@ git push -u origin main
 
 ## Findings and Visuals
 
-Take screenshots of your charts and provide them here with a discussion.
-In Markdown, display a figure by using:
-an exclamation mark immediately followed by square brackets containing a useful caption
-immediately followed by parentheses containing the relative path to your figure.
-Note: When you start typing the path with a dot (.) for "here, in this directory",
-the IDE may help complete the path.
+The two-feature model reaches an R-squared of 0.7838 on the test set, with an
+RMSE of 379.113 grams. The residuals scatter around zero with no clear curve or
+funnel, so nothing in the plot points to the linear form being wrong.
 
-In your custom project, follow this example, but
+![Residuals versus predicted body mass on the test set](./docs/images/residuals_penguins.png)
 
-- your figures and narrative should reflect your work,
-- this `README.md` should include your commands, process, and visuals, and
-- `docs/index.md` should include your narrative.
+Sweeping polynomial degree from 1 to 5 shows test RMSE moving only about 14 grams
+across the range, with training error rising at degree 5 where the fit becomes
+numerically unreliable. The small gain does not justify the added complexity, so
+the final model keeps degree 1.
 
-Remove unnecessary instructional comments in your custom files.
-
-Update figures to present interesting results from your custom project:
-
-![Provide a Useful Caption](./docs/images/Figure_1.png)
-
-![Provide a Useful Caption](./docs/images/Figure_2.png)
+![Train and test RMSE as polynomial degree increases](./docs/images/degree_sweep_penguins.png)
 
 ## Project Documentation
 

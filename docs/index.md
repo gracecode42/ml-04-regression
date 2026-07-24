@@ -21,19 +21,39 @@ to get the example projects running on your machine.
 
 ## Phase 4. Technical Modification
 
-Describe your small technical modification to the example project.
+For the technical modification, I added a second feature and fit a multiple
+regression. The example predicts body_mass_g from flipper_length_mm alone. I
+added bill_length_mm and replaced FEATURE_COL with a list, FEATURE_COLS, so the
+same structure holds if more features are added. I chose it since it is a
+recommended way to extend the notebook and will carry forward to the multiple
+regression in the custom project.
 
-Include:
+Two changes downstream followed from it. Section 4 read only the first
+coefficient and labeled it with the single feature name, so I rewrote it to log
+every coefficient with its feature. Section 6 sweeps polynomial degrees to
+compare model complexity, and it failed with two features, because np.polyfit
+fits a single variable and the sweep was passing it a two-column array. I
+replaced it with PolynomialFeatures, which expands any number of features, and
+reported the term count alongside each degree.
 
-- What you changed
-- Why you chose that change
-- How you verified that it worked
-- What result, output, chart, metric, or behavior confirmed the change
+I verified the change by rerunning the notebook and reading the log. X shape
+reported (342, 2) rather than (342, 1), and the fitted model printed a
+coefficient for each feature.
 
-Compared with the example project,
-explain what is different and why the change matters.
+Adding the second feature changed the result very little. Test R-squared went
+from 0.7820 to 0.7838 and RMSE from 380.695 to 379.113, an improvement of 1.6
+grams in typical error. I added a case comparison to investigate. Bill length on
+its own reaches an R-squared of 0.3662, so it is not uninformative, but nearly
+all of what it carries about body mass overlaps with flipper length, because the
+two measurements are correlated. The degree sweep told a similar story. Test
+RMSE drifts down only slightly across the sweep, from 379.113 at degree 1 to
+365.441 at degree 5, a change of about 14 grams. Training error falls until
+degree 4, then rises at degree 5, from 362.655 to 363.488, a sign the degree 5
+fit is no longer numerically reliable. Since the added degrees buy so little, I
+kept degree 1, the simplest model.
 
-Was it easy, or surprisingly challenging and why do you think so?
+I rated this moderate rather than easy. Adding one column meant edits across
+three sections, more than the one-line target swap in Module 3.
 
 ## Phase 5. Custom Project
 
