@@ -8,14 +8,23 @@
 
 ## Project Description
 
-This project builds and evaluates regression models, extending a course example
-and then applying the same workflow to a custom problem.
+This project builds and evaluates regression models. Phase 4 extends a course
+example, and Phase 5 applies the same workflow to a custom problem, which is the
+main work in this repository.
 
 The example predicts body_mass_g on the Seaborn penguins dataset from a single
-body measurement. The Phase 4 modification extends it to a multiple regression
-on two features and adds a case comparison to test whether the second feature
-earns its place. The Phase 5 custom project applies the workflow to a new
-dataset and is documented in docs/index.md.
+body measurement. The Phase 4 modification extends it to a multiple regression on
+two features and adds a case comparison to test whether the second feature earns
+its place.
+
+The Phase 5 custom project predicts individual medical insurance charges from age,
+sex, bmi, number of children, smoking status, and region, using a public dataset
+of 1,338 records with no missing values. Charges are right-skewed, and one
+predictor carries most of the signal, so the project compares a plain linear fit
+against a log-transformed target, polynomial expansion, and regularized models.
+The dataset is widely circulated but its provenance is not fully documented, so
+the results are an exercise in model comparison rather than a claim about actual
+pricing. The full write-up is in docs/index.md.
 
 The work covers:
 
@@ -23,6 +32,7 @@ The work covers:
 - using a train/test split to evaluate on unseen data
 - reading regression metrics: R-squared, RMSE, and residual plots
 - comparing feature cases and polynomial degree to choose a model
+- transforming a skewed target and tuning Ridge and ElasticNet regularization
 
 ## Notebooks
 
@@ -90,18 +100,30 @@ git push -u origin main
 
 ## Findings and Visuals
 
-The two-feature model reaches an R-squared of 0.7838 on the test set, with an
-RMSE of 379.113 grams. The residuals scatter around zero with no clear curve or
-funnel, so nothing in the plot points to the linear form being wrong.
+On the insurance data, a plain linear model reaches a test R-squared of 0.7836
+with an RMSE of 5,796 dollars. The residual plot is not random. Errors fan out as
+predicted charges rise, and two separate bands appear at the high end, which
+points to structure the linear form is not capturing rather than simple
+imprecision.
 
-![Residuals versus predicted body mass on the test set](./docs/images/residuals_penguins.png)
+![Residuals versus predicted charges on the test set](./docs/images/residuals_insurance.png)
 
-Sweeping polynomial degree from 1 to 5 shows test RMSE moving only about 14 grams
-across the range, with training error rising at degree 5 where the fit becomes
-numerically unreliable. The small gain does not justify the added complexity, so
-the final model keeps degree 1.
+Log-transforming the target reduced the fanning in the lower range but raised
+RMSE to 7,814 dollars, so it did not help in the units that matter. Polynomial
+features on the dollar target did. Degree 2 lowered RMSE from 5,796 to 4,551 and
+raised R-squared to 0.8666, since the product terms let smoking status and bmi
+interact instead of contributing separately. Degrees 3 and 4 overfit: training
+RMSE kept falling while test RMSE turned up. Ridge and ElasticNet with
+cross-validated alpha recovered part of that loss at degree 3, reaching about
+4,645, but neither beat 4,551. The final model is the degree 2 polynomial on the
+dollar target.
 
-![Train and test RMSE as polynomial degree increases](./docs/images/degree_sweep_penguins.png)
+![Train and test RMSE as polynomial degree increases](./docs/images/degree_sweep_insurance.png)
+
+### Final Model
+
+The chosen model is a degree 2 polynomial regression on the dollar target.
+It reaches a test R-squared of 0.8666 and an RMSE of 4,551 dollars.
 
 ## Project Documentation
 
