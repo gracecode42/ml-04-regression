@@ -3,14 +3,6 @@
 This site provides project documentation.
 Use the documentation navigation to explore.
 
-## How-To Guide
-
-Many instructions are common to all our projects.
-
-See
-[⭐ **Workflow: Apply Example**](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/)
-to get the example projects running on your machine.
-
 ## Project Documentation Pages (docs/)
 
 - **Home** - this documentation landing page
@@ -57,69 +49,96 @@ three sections, more than the one-line target swap in Module 3.
 
 ## Phase 5. Custom Project
 
-Describe your custom project and how you made your modeling decisions.
-
-Be specific about what changed from the example project.
+For the custom project I moved from the Seaborn penguins dataset to a real-world
+problem: predicting individual medical insurance charges. The example predicted a
+single numeric target from numeric body measurements. This dataset added
+categorical features and a skewed target, which pushed the project past the
+example's numeric-only pipeline into encoding, target transformation, polynomial
+features, and regularization.
 
 ### Basis and Data
 
-Describe the dataset, input, or example you started with.
+The example used the Seaborn penguins dataset, predicting body_mass_g from body
+measurements. I changed to insurance.csv, 1,338 rows with no missing values, from
+Kaggle (Choi, 2018), under the Open Database License. It has six features and a
+continuous dollar target, which suited regression and offered a mix of numeric
+and categorical columns the penguins pipeline did not have.
 
-Include:
-
-- The original example dataset or input
-- The data source
-- Why you chose it, kept it, or changed it
-- Any important limitations or assumptions
+One limitation matters for interpretation: the data's provenance is not fully
+documented, and it may not reflect real claims. The value of this project is the
+method, not the specific dollar figures.
 
 ### Modeling Approach
 
-Describe the problem type and modeling approach for this project.
-
-Include:
-
-- Is this supervised or unsupervised and how do you know
-- Is this classification, regression, clustering, recommendation, forecasting, or another type of ML task
-- What kind of target works well for this approach
-- Why your selected model or method is appropriate
+This is supervised learning, because every row has a known target value, charges,
+to learn from. It is a regression problem, because that target is a continuous
+number rather than a category. A linear regression is a reasonable starting model
+for a numeric target, and it also makes the model's weaknesses visible through its
+residuals, which is what drove the later modeling choices.
 
 ### Target
 
-Describe the example target variable.
-
-Then describe your chosen target variable.
-
-Explain how your target choice changes the modeling approach, interpretation, or evaluation.
+The example target was body_mass_g, a body measurement in grams. My target is
+charges, the individual medical cost billed by insurance, in dollars. The change
+mattered because charges is right-skewed: the mean of 13,270 dollars sits well
+above the median, pulled up by a tail of expensive cases. That skew shaped
+evaluation, since a model can post a decent R-squared while missing the expensive
+cases badly, and it motivated trying a log transform of the target.
 
 ### Features
 
-Describe the example features.
-
-Then describe the features you used to predict your target.
-
-Explain what you changed, added, removed, or kept and why.
+The example used two numeric body measurements. I used all six available features:
+age, bmi, and children, which are numeric, and sex, smoker, and region, which are
+categorical. The three categorical columns were one-hot encoded into 0/1 columns,
+giving eight numeric features in total. I kept all of them rather than selecting a
+subset, because the dataset is small and clean and the feature comparison could
+show which ones carried the weight. Smoking turned out to dominate, adding about
+23,600 dollars to predicted charges.
 
 ### Evaluation and Results
 
-Describe how you evaluated your model.
+I evaluated on a held-out test set using R-squared, RMSE in dollars, and residual
+plots. A plain linear model reached R-squared 0.7836 and RMSE 5,796. The residual
+plot was the most useful evidence: it showed the errors funneling wider as charges
+rose and splitting into two groups at high charges, so the model was missing real
+structure, not just imprecise.
 
-Include:
+I tried several responses. Log-transforming the target reduced the funnel in the
+lower range of the residuals but raised dollar RMSE from 5,796 to 7,814, because
+compressing the scale amplified the error on the largest charges. Polynomial
+features at degree 2 lowered test RMSE to 4,551 and raised R-squared to 0.8666,
+because the product terms let the model represent how features interact rather
+than only adding their effects separately. Past degree 2 the model overfit: in
+the degree sweep, training RMSE kept falling while test RMSE turned and rose. I
+also tested Ridge and ElasticNet regularization. At degree 2 they changed almost
+nothing, because the model was not overfitting; at degree 3, where it did
+overfit, they recovered part of the loss but never beat the degree 2 model.
 
-- The metric or evidence you used
-- The main result
-- Whether the result was useful, interesting, surprising, or disappointing
-- Any weakness, limitation, or next improvement
+The result was useful rather than dramatic. The best model, degree 2 on the dollar
+target, was the simplest one that captured the interaction structure, and neither
+transformation nor regularization could beat it. The main limitation is the two
+groups the residuals still show at high charges, which a more targeted feature
+might separate better than added polynomial degree.
 
 ### Summary
 
-Summarize your custom project.
+I built the custom model by encoding the categorical features, fitting a linear
+regression, diagnosing its residuals, and then improving it through target
+transformation, polynomial features, and regularization, comparing each choice on
+held-out data. The final model is the degree 2 polynomial on the dollar target,
+with a test R-squared of 0.8666 and an RMSE of 4,551 dollars.
 
-Include:
+What I learned is that added machinery is only worth it where there is a problem to
+solve. The log transform did not help, higher polynomial degrees overfit, and
+regularization mattered only where overfitting was present. Recognizing when a
+model is about as good as the data allows is part of the work, not a failure to
+improve it.
 
-- How you implemented your custom model
-- What results you got
-- What you learned
-- How well you exercised the skills covered in this project
-- What kinds of real problems you could apply these skills to in the future
+Working through this project exercised the full regression workflow, from
+encoding and evaluation to diagnosing residuals and deciding when added
+complexity was worth its cost. The same approach applies anywhere a continuous
+outcome is predicted from mixed data: predicting housing prices, estimating
+medical or insurance costs, projecting energy demand, or modeling salaries from
+experience and role.
 
-Display at least one image or screenshot showing your work.
+![Train and test RMSE by polynomial degree, both targets](images/degree_sweep_insurance.png)

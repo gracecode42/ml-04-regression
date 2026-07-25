@@ -723,3 +723,11 @@ region_southwest      int64
 2026-07-24 21:25:06 | INFO | ML | shell=powershell
 2026-07-24 21:25:06 | INFO | ML | cwd=.
 2026-07-24 21:25:06 | INFO | ML | github_actions=False
+2026-07-25 14:19:09 | INFO | ML | === RUN START ===
+2026-07-25 14:19:09 | INFO | ML | project=ML
+2026-07-25 14:19:09 | INFO | ML | repo_dir=ml-04-regression
+2026-07-25 14:19:09 | INFO | ML | python=3.14.2
+2026-07-25 14:19:09 | INFO | ML | os=Windows 11
+2026-07-25 14:19:09 | INFO | ML | shell=powershell
+2026-07-25 14:19:09 | INFO | ML | cwd=.
+2026-07-25 14:19:09 | INFO | ML | github_actions=False

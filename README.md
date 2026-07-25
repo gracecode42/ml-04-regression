@@ -76,7 +76,7 @@ uv run python -m mlstudio.app_case
 # run common chores
 uv run ruff format .
 uv run ruff check . --fix
-uv run python -m pyright
+uv run python -m pytest --cov=src --cov-report=term-missing
 uv run python -m pytest
 uv run python -m zensical build
 
