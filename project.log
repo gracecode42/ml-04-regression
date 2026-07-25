@@ -340,3 +340,386 @@ max               231.00           59.60      6300.00
 2026-07-24 15:01:00 | INFO | ML | shell=powershell
 2026-07-24 15:01:00 | INFO | ML | cwd=.
 2026-07-24 15:01:00 | INFO | ML | github_actions=False
+2026-07-24 17:01:28 | INFO | M04 Phase 4 | === RUN START ===
+2026-07-24 17:01:28 | INFO | M04 Phase 4 | project=M04 Phase 4
+2026-07-24 17:01:28 | INFO | M04 Phase 4 | repo_dir=ml-04-regression
+2026-07-24 17:01:28 | INFO | M04 Phase 4 | python=3.14.2
+2026-07-24 17:01:28 | INFO | M04 Phase 4 | os=Windows 11
+2026-07-24 17:01:28 | INFO | M04 Phase 4 | shell=powershell
+2026-07-24 17:01:28 | INFO | M04 Phase 4 | cwd=notebooks
+2026-07-24 17:01:28 | INFO | M04 Phase 4 | github_actions=False
+2026-07-24 17:01:28 | INFO | M04 Phase 4 | Confirming installation:
+2026-07-24 17:01:28 | INFO | M04 Phase 4 |   python:       3.14.2
+2026-07-24 17:01:28 | INFO | M04 Phase 4 |   pandas:       3.0.3
+2026-07-24 17:01:28 | INFO | M04 Phase 4 |   numpy:        2.5.1
+2026-07-24 17:01:28 | INFO | M04 Phase 4 |   scikit-learn: 1.9.0
+2026-07-24 17:01:28 | INFO | M04 Phase 4 |   seaborn:      0.13.2
+2026-07-24 17:01:28 | INFO | M04 Phase 4 |   matplotlib:   3.11.1
+2026-07-24 17:03:14 | INFO | M04 Phase 4 | Loaded: 1338 rows (instances), 7 columns
+2026-07-24 17:06:28 | INFO | M04 Phase 4 | Column types:
+age           int64
+sex             str
+bmi         float64
+children      int64
+smoker          str
+region          str
+charges     float64
+2026-07-24 17:06:28 | INFO | M04 Phase 4 | Missing values:
+age         0
+sex         0
+bmi         0
+children    0
+smoker      0
+region      0
+charges     0
+2026-07-24 17:06:28 | INFO | M04 Phase 4 | 
+            age   sex      bmi  children smoker     region   charges
+count   1338.00  1338  1338.00   1338.00   1338       1338   1338.00
+unique      NaN     2      NaN       NaN      2          4       NaN
+top         NaN  male      NaN       NaN     no  southeast       NaN
+freq        NaN   676      NaN       NaN   1064        364       NaN
+mean      39.21   NaN    30.66      1.09    NaN        NaN  13270.42
+std       14.05   NaN     6.10      1.21    NaN        NaN  12110.01
+min       18.00   NaN    15.96      0.00    NaN        NaN   1121.87
+25%       27.00   NaN    26.30      0.00    NaN        NaN   4740.29
+50%       39.00   NaN    30.40      1.00    NaN        NaN   9382.03
+75%       51.00   NaN    34.69      2.00    NaN        NaN  16639.91
+max       64.00   NaN    53.13      5.00    NaN        NaN  63770.43
+2026-07-24 17:19:40 | INFO | M04 Phase 4 | sex: ['female', 'male']
+2026-07-24 17:19:40 | INFO | M04 Phase 4 | sex
+male      676
+female    662
+2026-07-24 17:19:40 | INFO | M04 Phase 4 | smoker: ['yes', 'no']
+2026-07-24 17:19:40 | INFO | M04 Phase 4 | smoker
+no     1064
+yes     274
+2026-07-24 17:19:40 | INFO | M04 Phase 4 | region: ['southwest', 'southeast', 'northwest', 'northeast']
+2026-07-24 17:19:40 | INFO | M04 Phase 4 | region
+southeast    364
+southwest    325
+northwest    325
+northeast    324
+2026-07-24 17:23:16 | INFO | M04 Phase 4 | Columns after encoding: ['age', 'bmi', 'children', 'charges', 'sex_male', 'smoker_yes', 'region_northwest', 'region_southeast', 'region_southwest']
+2026-07-24 17:23:16 | INFO | M04 Phase 4 | 
+age                   int64
+bmi                 float64
+children              int64
+charges             float64
+sex_male               bool
+smoker_yes             bool
+region_northwest       bool
+region_southeast       bool
+region_southwest       bool
+2026-07-24 17:26:49 | INFO | M04 Phase 4 | Columns after encoding: ['age', 'bmi', 'children', 'charges', 'sex_male', 'smoker_yes', 'region_northwest', 'region_southeast', 'region_southwest']
+2026-07-24 17:26:49 | INFO | M04 Phase 4 | 
+age                   int64
+bmi                 float64
+children              int64
+charges             float64
+sex_male              int64
+smoker_yes            int64
+region_northwest      int64
+region_southeast      int64
+region_southwest      int64
+2026-07-24 17:28:57 | INFO | M04 Phase 4 | Feature columns (8): ['age', 'bmi', 'children', 'sex_male', 'smoker_yes', 'region_northwest', 'region_southeast', 'region_southwest']
+2026-07-24 17:28:57 | INFO | M04 Phase 4 | X shape: (1338, 8)  (rows, features)
+2026-07-24 17:28:57 | INFO | M04 Phase 4 | Train instances: 1070
+2026-07-24 17:28:57 | INFO | M04 Phase 4 | Test instances: 268
+2026-07-24 17:31:42 | INFO | M04 Phase 4 | Fitting a linear regression (scikit-learn)
+2026-07-24 17:31:42 | INFO | M04 Phase 4 | Fitted model for charges:
+2026-07-24 17:31:42 | INFO | M04 Phase 4 |   256.976 * age
+2026-07-24 17:31:42 | INFO | M04 Phase 4 |   337.093 * bmi
+2026-07-24 17:31:42 | INFO | M04 Phase 4 |   425.279 * children
+2026-07-24 17:31:42 | INFO | M04 Phase 4 |   -18.5917 * sex_male
+2026-07-24 17:31:42 | INFO | M04 Phase 4 |   23651.1 * smoker_yes
+2026-07-24 17:31:42 | INFO | M04 Phase 4 |   -370.677 * region_northwest
+2026-07-24 17:31:42 | INFO | M04 Phase 4 |   -657.864 * region_southeast
+2026-07-24 17:31:42 | INFO | M04 Phase 4 |   -809.799 * region_southwest
+2026-07-24 17:31:42 | INFO | M04 Phase 4 |   intercept: -11931.2
+2026-07-24 17:31:42 | INFO | M04 Phase 4 | Equation: charges = 256.976 * age + 337.093 * bmi + 425.279 * children + -18.5917 * sex_male + 23651.1 * smoker_yes + -370.677 * region_northwest + -657.864 * region_southeast + -809.799 * region_southwest + -11931.2
+2026-07-24 17:42:07 | INFO | M04 Phase 4 | Fit numbers on the TEST set (for you to interpret):
+2026-07-24 17:42:07 | INFO | M04 Phase 4 |   R-squared: 0.7836
+2026-07-24 17:42:07 | INFO | M04 Phase 4 |   RMSE:      5796.28  (in units of Charges (USD))
+2026-07-24 18:30:38 | INFO | M04 Phase 4 | Log-target model, evaluated back in dollars:
+2026-07-24 18:30:38 | INFO | M04 Phase 4 |   R-squared (log space): 0.8047
+2026-07-24 18:30:38 | INFO | M04 Phase 4 |   RMSE (dollars):        7814.064
+2026-07-24 19:27:40 | INFO | M04 Phase 4 | === RUN START ===
+2026-07-24 19:27:40 | INFO | M04 Phase 4 | project=M04 Phase 4
+2026-07-24 19:27:40 | INFO | M04 Phase 4 | repo_dir=ml-04-regression
+2026-07-24 19:27:40 | INFO | M04 Phase 4 | python=3.14.2
+2026-07-24 19:27:40 | INFO | M04 Phase 4 | os=Windows 11
+2026-07-24 19:27:40 | INFO | M04 Phase 4 | shell=powershell
+2026-07-24 19:27:40 | INFO | M04 Phase 4 | cwd=notebooks
+2026-07-24 19:27:40 | INFO | M04 Phase 4 | github_actions=False
+2026-07-24 19:27:40 | INFO | M04 Phase 4 | Confirming installation:
+2026-07-24 19:27:40 | INFO | M04 Phase 4 |   python:       3.14.2
+2026-07-24 19:27:40 | INFO | M04 Phase 4 |   pandas:       3.0.3
+2026-07-24 19:27:40 | INFO | M04 Phase 4 |   numpy:        2.5.1
+2026-07-24 19:27:40 | INFO | M04 Phase 4 |   scikit-learn: 1.9.0
+2026-07-24 19:27:40 | INFO | M04 Phase 4 |   seaborn:      0.13.2
+2026-07-24 19:27:40 | INFO | M04 Phase 4 |   matplotlib:   3.11.1
+2026-07-24 19:28:17 | INFO | M04 Phase 4 | Sweep A, dollar target (RMSE in dollars):
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=1  train RMSE=6105.5  test RMSE=5796.3
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=2  train RMSE=4778.2  test RMSE=4551.1
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=3  train RMSE=4575.5  test RMSE=4847.5
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=4  train RMSE=4236.8  test RMSE=6177.3
+2026-07-24 19:28:17 | INFO | M04 Phase 4 | Sweep B, log target (RMSE in dollars):
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=1  train RMSE=8389.7  test RMSE=7814.1
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=2  train RMSE=5158.0  test RMSE=4749.0
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=3  train RMSE=4722.7  test RMSE=4906.3
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=4  train RMSE=4486.0  test RMSE=6832.5
+2026-07-24 19:28:17 | INFO | M04 Phase 4 | Sweep A, dollar target (RMSE in dollars):
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=1  train RMSE=6105.5  test RMSE=5796.3
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=2  train RMSE=4778.2  test RMSE=4551.1
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=3  train RMSE=4575.5  test RMSE=4847.5
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=4  train RMSE=4236.8  test RMSE=6177.3
+2026-07-24 19:28:17 | INFO | M04 Phase 4 | Sweep B, log target (RMSE in dollars):
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=1  train RMSE=8389.7  test RMSE=7814.1
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=2  train RMSE=5158.0  test RMSE=4749.0
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=3  train RMSE=4722.7  test RMSE=4906.3
+2026-07-24 19:28:17 | INFO | M04 Phase 4 |   degree=4  train RMSE=4486.0  test RMSE=6832.5
+2026-07-24 19:37:28 | INFO | M04 Phase 4 | Sweep A, dollar target (RMSE in dollars):
+2026-07-24 19:37:28 | INFO | M04 Phase 4 |   degree=1  train RMSE=6105.5  test RMSE=5796.3
+2026-07-24 19:37:28 | INFO | M04 Phase 4 |   degree=2  train RMSE=4778.2  test RMSE=4551.1
+2026-07-24 19:37:28 | INFO | M04 Phase 4 |   degree=3  train RMSE=4575.5  test RMSE=4847.5
+2026-07-24 19:37:28 | INFO | M04 Phase 4 |   degree=4  train RMSE=4236.8  test RMSE=6177.3
+2026-07-24 19:37:29 | INFO | M04 Phase 4 | Sweep B, log target (RMSE in dollars):
+2026-07-24 19:37:29 | INFO | M04 Phase 4 |   degree=1  train RMSE=8389.7  test RMSE=7814.1
+2026-07-24 19:37:29 | INFO | M04 Phase 4 |   degree=2  train RMSE=5158.0  test RMSE=4749.0
+2026-07-24 19:37:29 | INFO | M04 Phase 4 |   degree=3  train RMSE=4722.7  test RMSE=4906.3
+2026-07-24 19:37:29 | INFO | M04 Phase 4 |   degree=4  train RMSE=4486.0  test RMSE=6832.5
+2026-07-24 19:45:53 | INFO | M04 Phase 4 | Sweep A, dollar target (RMSE in dollars):
+2026-07-24 19:45:53 | INFO | M04 Phase 4 |   degree=1  train RMSE=6105.5  test RMSE=5796.3
+2026-07-24 19:45:53 | INFO | M04 Phase 4 |   degree=2  train RMSE=4778.2  test RMSE=4551.1
+2026-07-24 19:45:53 | INFO | M04 Phase 4 |   degree=3  train RMSE=4575.5  test RMSE=4847.5
+2026-07-24 19:45:53 | INFO | M04 Phase 4 |   degree=4  train RMSE=4236.8  test RMSE=6177.3
+2026-07-24 19:45:53 | INFO | M04 Phase 4 | Sweep B, log target (RMSE in dollars):
+2026-07-24 19:45:53 | INFO | M04 Phase 4 |   degree=1  train RMSE=8389.7  test RMSE=7814.1
+2026-07-24 19:45:53 | INFO | M04 Phase 4 |   degree=2  train RMSE=5158.0  test RMSE=4749.0
+2026-07-24 19:45:53 | INFO | M04 Phase 4 |   degree=3  train RMSE=4722.7  test RMSE=4906.3
+2026-07-24 19:45:53 | INFO | M04 Phase 4 |   degree=4  train RMSE=4486.0  test RMSE=6832.5
+2026-07-24 19:48:25 | INFO | M04 Phase 4 | Sweep A, dollar target (RMSE in dollars):
+2026-07-24 19:48:25 | INFO | M04 Phase 4 |   degree=1  train RMSE=6105.5  test RMSE=5796.3
+2026-07-24 19:48:25 | INFO | M04 Phase 4 |   degree=2  train RMSE=4778.2  test RMSE=4551.1
+2026-07-24 19:48:25 | INFO | M04 Phase 4 |   degree=3  train RMSE=4575.5  test RMSE=4847.5
+2026-07-24 19:48:25 | INFO | M04 Phase 4 |   degree=4  train RMSE=4236.8  test RMSE=6177.3
+2026-07-24 19:48:26 | INFO | M04 Phase 4 | Sweep B, log target (RMSE in dollars):
+2026-07-24 19:48:26 | INFO | M04 Phase 4 |   degree=1  train RMSE=8389.7  test RMSE=7814.1
+2026-07-24 19:48:26 | INFO | M04 Phase 4 |   degree=2  train RMSE=5158.0  test RMSE=4749.0
+2026-07-24 19:48:26 | INFO | M04 Phase 4 |   degree=3  train RMSE=4722.7  test RMSE=4906.3
+2026-07-24 19:48:26 | INFO | M04 Phase 4 |   degree=4  train RMSE=4486.0  test RMSE=6832.5
+2026-07-24 19:52:03 | INFO | M04 Phase 4 | Sweep A, dollar target (RMSE in dollars):
+2026-07-24 19:52:03 | INFO | M04 Phase 4 |   degree=1  train RMSE=6105.5  test RMSE=5796.3
+2026-07-24 19:52:03 | INFO | M04 Phase 4 |   degree=2  train RMSE=4778.2  test RMSE=4551.1
+2026-07-24 19:52:03 | INFO | M04 Phase 4 |   degree=3  train RMSE=4575.5  test RMSE=4847.5
+2026-07-24 19:52:03 | INFO | M04 Phase 4 |   degree=4  train RMSE=4236.8  test RMSE=6177.3
+2026-07-24 19:52:03 | INFO | M04 Phase 4 | Sweep B, log target (RMSE in dollars):
+2026-07-24 19:52:03 | INFO | M04 Phase 4 |   degree=1  train RMSE=8389.7  test RMSE=7814.1
+2026-07-24 19:52:03 | INFO | M04 Phase 4 |   degree=2  train RMSE=5158.0  test RMSE=4749.0
+2026-07-24 19:52:03 | INFO | M04 Phase 4 |   degree=3  train RMSE=4722.7  test RMSE=4906.3
+2026-07-24 19:52:03 | INFO | M04 Phase 4 |   degree=4  train RMSE=4486.0  test RMSE=6832.5
+2026-07-24 20:09:26 | INFO | M04 Phase 4 | === RUN START ===
+2026-07-24 20:09:26 | INFO | M04 Phase 4 | project=M04 Phase 4
+2026-07-24 20:09:26 | INFO | M04 Phase 4 | repo_dir=ml-04-regression
+2026-07-24 20:09:26 | INFO | M04 Phase 4 | python=3.14.2
+2026-07-24 20:09:26 | INFO | M04 Phase 4 | os=Windows 11
+2026-07-24 20:09:26 | INFO | M04 Phase 4 | shell=powershell
+2026-07-24 20:09:26 | INFO | M04 Phase 4 | cwd=notebooks
+2026-07-24 20:09:26 | INFO | M04 Phase 4 | github_actions=False
+2026-07-24 20:09:26 | INFO | M04 Phase 4 | Confirming installation:
+2026-07-24 20:09:26 | INFO | M04 Phase 4 |   python:       3.14.2
+2026-07-24 20:09:26 | INFO | M04 Phase 4 |   pandas:       3.0.3
+2026-07-24 20:09:26 | INFO | M04 Phase 4 |   numpy:        2.5.1
+2026-07-24 20:09:26 | INFO | M04 Phase 4 |   scikit-learn: 1.9.0
+2026-07-24 20:09:26 | INFO | M04 Phase 4 |   seaborn:      0.13.2
+2026-07-24 20:09:26 | INFO | M04 Phase 4 |   matplotlib:   3.11.1
+2026-07-24 20:09:34 | INFO | M04 Phase 4 | === RUN START ===
+2026-07-24 20:09:34 | INFO | M04 Phase 4 | project=M04 Phase 4
+2026-07-24 20:09:34 | INFO | M04 Phase 4 | repo_dir=ml-04-regression
+2026-07-24 20:09:34 | INFO | M04 Phase 4 | python=3.14.2
+2026-07-24 20:09:34 | INFO | M04 Phase 4 | os=Windows 11
+2026-07-24 20:09:34 | INFO | M04 Phase 4 | shell=powershell
+2026-07-24 20:09:34 | INFO | M04 Phase 4 | cwd=notebooks
+2026-07-24 20:09:34 | INFO | M04 Phase 4 | github_actions=False
+2026-07-24 20:09:34 | INFO | M04 Phase 4 | Confirming installation:
+2026-07-24 20:09:34 | INFO | M04 Phase 4 |   python:       3.14.2
+2026-07-24 20:09:34 | INFO | M04 Phase 4 |   pandas:       3.0.3
+2026-07-24 20:09:34 | INFO | M04 Phase 4 |   numpy:        2.5.1
+2026-07-24 20:09:34 | INFO | M04 Phase 4 |   scikit-learn: 1.9.0
+2026-07-24 20:09:34 | INFO | M04 Phase 4 |   seaborn:      0.13.2
+2026-07-24 20:09:34 | INFO | M04 Phase 4 |   matplotlib:   3.11.1
+2026-07-24 20:15:32 | INFO | M04 Phase 4 | Degree 2 model comparison (test RMSE in dollars):
+2026-07-24 20:15:32 | INFO | M04 Phase 4 |   Plain (least squares)    test RMSE=4551.1
+2026-07-24 20:15:32 | INFO | M04 Phase 4 |   Ridge (CV-tuned)         test RMSE=4551.7  (alpha=1.27)
+2026-07-24 20:15:33 | INFO | M04 Phase 4 |   ElasticNet (CV-tuned)    test RMSE=4551.2  (alpha=0.01)
+2026-07-24 20:20:16 | INFO | M04 Phase 4 | Degree 2 comparison (test set):
+2026-07-24 20:20:16 | INFO | M04 Phase 4 |   Plain (least squares)    R-squared=0.8666  RMSE=4551.1  (no penalty)
+2026-07-24 20:20:16 | INFO | M04 Phase 4 |   Ridge (CV-tuned)         R-squared=0.8665  RMSE=4551.7  (alpha=1.27)
+2026-07-24 20:20:16 | INFO | M04 Phase 4 |   ElasticNet (CV-tuned)    R-squared=0.8666  RMSE=4551.2  (alpha=0.01)
+2026-07-24 20:20:16 | INFO | M04 Phase 4 | Degree 3 comparison (test set):
+2026-07-24 20:20:16 | INFO | M04 Phase 4 |   Plain (least squares)    R-squared=0.8486  RMSE=4847.5  (no penalty)
+2026-07-24 20:20:16 | INFO | M04 Phase 4 |   Ridge (CV-tuned)         R-squared=0.8607  RMSE=4650.9  (alpha=14.4)
+2026-07-24 20:20:18 | INFO | M04 Phase 4 |   ElasticNet (CV-tuned)    R-squared=0.8610  RMSE=4645.4  (alpha=0.0183)
+2026-07-24 20:26:41 | INFO | M04 Phase 4 | Degree 2 comparison (test set):
+2026-07-24 20:26:41 | INFO | M04 Phase 4 |   Plain (least squares)    R-squared=0.8666  RMSE=4551.1  (no penalty)
+2026-07-24 20:26:41 | INFO | M04 Phase 4 |   Ridge (CV-tuned)         R-squared=0.8665  RMSE=4551.7  (alpha=1.27)
+2026-07-24 20:26:42 | INFO | M04 Phase 4 |   ElasticNet (CV-tuned)    R-squared=0.8666  RMSE=4551.2  (alpha=0.01)
+2026-07-24 20:26:42 | INFO | M04 Phase 4 | Degree 3 comparison (test set):
+2026-07-24 20:26:42 | INFO | M04 Phase 4 |   Plain (least squares)    R-squared=0.8486  RMSE=4847.5  (no penalty)
+2026-07-24 20:26:42 | INFO | M04 Phase 4 |   Ridge (CV-tuned)         R-squared=0.8607  RMSE=4650.9  (alpha=14.4)
+2026-07-24 20:26:45 | INFO | M04 Phase 4 |   ElasticNet (CV-tuned)    R-squared=0.8610  RMSE=4645.4  (alpha=0.0183)
+2026-07-24 20:41:02 | INFO | M04 Phase 4 | ========================
+2026-07-24 20:41:02 | INFO | M04 Phase 4 | SUMMARY
+2026-07-24 20:41:02 | INFO | M04 Phase 4 | ========================
+2026-07-24 20:41:02 | INFO | M04 Phase 4 | Dataset:  insurance.csv  (1338 rows)
+2026-07-24 20:41:02 | INFO | M04 Phase 4 | Features: 8 (after encoding)  ->  Target: charges  (regression)
+2026-07-24 20:41:02 | INFO | M04 Phase 4 | Best model: degree 2 polynomial, dollar target, plain least squares
+2026-07-24 20:41:02 | INFO | M04 Phase 4 |   Test R-squared: 0.8666   Test RMSE: 4551.1
+2026-07-24 20:41:02 | INFO | M04 Phase 4 | Baselines for comparison:
+2026-07-24 20:41:02 | INFO | M04 Phase 4 |   Degree 1 linear (dollars): RMSE 5796.3
+2026-07-24 20:41:02 | INFO | M04 Phase 4 |   Degree 1 linear (log target): RMSE 7814.1
+2026-07-24 20:41:02 | INFO | M04 Phase 4 | ========================
+2026-07-24 20:42:40 | INFO | M04 Phase 5 | === RUN START ===
+2026-07-24 20:42:40 | INFO | M04 Phase 5 | project=M04 Phase 5
+2026-07-24 20:42:40 | INFO | M04 Phase 5 | repo_dir=ml-04-regression
+2026-07-24 20:42:40 | INFO | M04 Phase 5 | python=3.14.2
+2026-07-24 20:42:40 | INFO | M04 Phase 5 | os=Windows 11
+2026-07-24 20:42:40 | INFO | M04 Phase 5 | shell=powershell
+2026-07-24 20:42:40 | INFO | M04 Phase 5 | cwd=notebooks
+2026-07-24 20:42:40 | INFO | M04 Phase 5 | github_actions=False
+2026-07-24 20:42:40 | INFO | M04 Phase 5 | Confirming installation:
+2026-07-24 20:42:40 | INFO | M04 Phase 5 |   python:       3.14.2
+2026-07-24 20:42:40 | INFO | M04 Phase 5 |   pandas:       3.0.3
+2026-07-24 20:42:40 | INFO | M04 Phase 5 |   numpy:        2.5.1
+2026-07-24 20:42:40 | INFO | M04 Phase 5 |   scikit-learn: 1.9.0
+2026-07-24 20:42:40 | INFO | M04 Phase 5 |   seaborn:      0.13.2
+2026-07-24 20:42:40 | INFO | M04 Phase 5 |   matplotlib:   3.11.1
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | === RUN START ===
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | project=M04 Phase 5
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | repo_dir=ml-04-regression
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | python=3.14.2
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | os=Windows 11
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | shell=powershell
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | cwd=notebooks
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | github_actions=False
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Confirming installation:
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   python:       3.14.2
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   pandas:       3.0.3
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   numpy:        2.5.1
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   scikit-learn: 1.9.0
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   seaborn:      0.13.2
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   matplotlib:   3.11.1
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Loaded: 1338 rows (instances), 7 columns
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Column types:
+age           int64
+sex             str
+bmi         float64
+children      int64
+smoker          str
+region          str
+charges     float64
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Missing values:
+age         0
+sex         0
+bmi         0
+children    0
+smoker      0
+region      0
+charges     0
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | 
+            age   sex      bmi  children smoker     region   charges
+count   1338.00  1338  1338.00   1338.00   1338       1338   1338.00
+unique      NaN     2      NaN       NaN      2          4       NaN
+top         NaN  male      NaN       NaN     no  southeast       NaN
+freq        NaN   676      NaN       NaN   1064        364       NaN
+mean      39.21   NaN    30.66      1.09    NaN        NaN  13270.42
+std       14.05   NaN     6.10      1.21    NaN        NaN  12110.01
+min       18.00   NaN    15.96      0.00    NaN        NaN   1121.87
+25%       27.00   NaN    26.30      0.00    NaN        NaN   4740.29
+50%       39.00   NaN    30.40      1.00    NaN        NaN   9382.03
+75%       51.00   NaN    34.69      2.00    NaN        NaN  16639.91
+max       64.00   NaN    53.13      5.00    NaN        NaN  63770.43
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | sex: ['female', 'male']
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | sex
+male      676
+female    662
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | smoker: ['yes', 'no']
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | smoker
+no     1064
+yes     274
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | region: ['southwest', 'southeast', 'northwest', 'northeast']
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | region
+southeast    364
+southwest    325
+northwest    325
+northeast    324
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Columns after encoding: ['age', 'bmi', 'children', 'charges', 'sex_male', 'smoker_yes', 'region_northwest', 'region_southeast', 'region_southwest']
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | 
+age                   int64
+bmi                 float64
+children              int64
+charges             float64
+sex_male              int64
+smoker_yes            int64
+region_northwest      int64
+region_southeast      int64
+region_southwest      int64
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Feature columns (8): ['age', 'bmi', 'children', 'sex_male', 'smoker_yes', 'region_northwest', 'region_southeast', 'region_southwest']
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | X shape: (1338, 8)  (rows, features)
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Train instances: 1070
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Test instances: 268
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Fitting a linear regression (scikit-learn)
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Fitted model for charges:
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   256.976 * age
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   337.093 * bmi
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   425.279 * children
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   -18.5917 * sex_male
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   23651.1 * smoker_yes
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   -370.677 * region_northwest
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   -657.864 * region_southeast
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   -809.799 * region_southwest
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   intercept: -11931.2
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Equation: charges = 256.976 * age + 337.093 * bmi + 425.279 * children + -18.5917 * sex_male + 23651.1 * smoker_yes + -370.677 * region_northwest + -657.864 * region_southeast + -809.799 * region_southwest + -11931.2
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Fit numbers on the TEST set (for you to interpret):
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   R-squared: 0.7836
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   RMSE:      5796.28  (in units of Charges (USD))
+2026-07-24 21:21:37 | INFO | M04 Phase 5 | Log-target model, evaluated back in dollars:
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   R-squared (log space): 0.8047
+2026-07-24 21:21:37 | INFO | M04 Phase 5 |   RMSE (dollars):        7814.064
+2026-07-24 21:21:38 | INFO | M04 Phase 5 | Sweep A, dollar target (RMSE in dollars):
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   degree=1  train RMSE=6105.5  test RMSE=5796.3
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   degree=2  train RMSE=4778.2  test RMSE=4551.1
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   degree=3  train RMSE=4575.5  test RMSE=4847.5
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   degree=4  train RMSE=4236.8  test RMSE=6177.3
+2026-07-24 21:21:38 | INFO | M04 Phase 5 | Sweep B, log target (RMSE in dollars):
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   degree=1  train RMSE=8389.7  test RMSE=7814.1
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   degree=2  train RMSE=5158.0  test RMSE=4749.0
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   degree=3  train RMSE=4722.7  test RMSE=4906.3
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   degree=4  train RMSE=4486.0  test RMSE=6832.5
+2026-07-24 21:21:38 | INFO | M04 Phase 5 | Degree 2 comparison (test set):
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   Plain (least squares)    R-squared=0.8666  RMSE=4551.1  (no penalty)
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   Ridge (CV-tuned)         R-squared=0.8665  RMSE=4551.7  (alpha=1.27)
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   ElasticNet (CV-tuned)    R-squared=0.8666  RMSE=4551.2  (alpha=0.01)
+2026-07-24 21:21:38 | INFO | M04 Phase 5 | Degree 3 comparison (test set):
+2026-07-24 21:21:38 | INFO | M04 Phase 5 |   Plain (least squares)    R-squared=0.8486  RMSE=4847.5  (no penalty)
+2026-07-24 21:21:39 | INFO | M04 Phase 5 |   Ridge (CV-tuned)         R-squared=0.8607  RMSE=4650.9  (alpha=14.4)
+2026-07-24 21:21:42 | INFO | M04 Phase 5 |   ElasticNet (CV-tuned)    R-squared=0.8610  RMSE=4645.4  (alpha=0.0183)
+2026-07-24 21:21:42 | INFO | M04 Phase 5 | ========================
+2026-07-24 21:21:42 | INFO | M04 Phase 5 | SUMMARY
+2026-07-24 21:21:42 | INFO | M04 Phase 5 | ========================
+2026-07-24 21:21:42 | INFO | M04 Phase 5 | Dataset:  insurance.csv  (1338 rows)
+2026-07-24 21:21:42 | INFO | M04 Phase 5 | Features: 8 (after encoding)  ->  Target: charges  (regression)
+2026-07-24 21:21:42 | INFO | M04 Phase 5 | Best model: degree 2 polynomial, dollar target, plain least squares
+2026-07-24 21:21:42 | INFO | M04 Phase 5 |   Test R-squared: 0.8666   Test RMSE: 4551.1
+2026-07-24 21:21:42 | INFO | M04 Phase 5 | Baselines for comparison:
+2026-07-24 21:21:42 | INFO | M04 Phase 5 |   Degree 1 linear (dollars): RMSE 5796.3
+2026-07-24 21:21:42 | INFO | M04 Phase 5 |   Degree 1 linear (log target): RMSE 7814.1
+2026-07-24 21:21:42 | INFO | M04 Phase 5 | ========================
+2026-07-24 21:25:06 | INFO | ML | === RUN START ===
+2026-07-24 21:25:06 | INFO | ML | project=ML
+2026-07-24 21:25:06 | INFO | ML | repo_dir=ml-04-regression
+2026-07-24 21:25:06 | INFO | ML | python=3.14.2
+2026-07-24 21:25:06 | INFO | ML | os=Windows 11
+2026-07-24 21:25:06 | INFO | ML | shell=powershell
+2026-07-24 21:25:06 | INFO | ML | cwd=.
+2026-07-24 21:25:06 | INFO | ML | github_actions=False
